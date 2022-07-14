@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Pais {
@@ -19,12 +20,15 @@ public class Pais {
         return this.populacao/this.dimensao;
 
     }
-    public void paisVizinho (Pais pais){
-        if (this.paisFronteira.contains(pais)){
-            System.out.println( pais.getNomePais() + " É VIZINHO!");
-        } else {
-            System.out.println( pais.getNomePais() + " NÃO É VIZINHO!");
+    public List<Pais> verificaVizinhosEmComum(Pais pais){
+        List<Pais>listaDePaisesEmComum = new ArrayList<>();
+        for (Pais paisVizinho : this.paisFronteira) {
+            if (pais.getPaisFronteira().contains(paisVizinho)) {
+                System.out.println(paisVizinho.getNomePais());
+                listaDePaisesEmComum.add(paisVizinho);
+            }
         }
+        return listaDePaisesEmComum;
     }
 
     public void mostrar(){
